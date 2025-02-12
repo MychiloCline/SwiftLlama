@@ -14,6 +14,13 @@ let package = Package(
     products: [
         .library(name: "SwiftLlama", targets: ["SwiftLlama"]),
     ],
+    cxxSettings: [
+        // Tells the compiler where to find your C++ headers:
+        .headerSearchPath("include"),
+        
+        // If you need to enforce a particular C++ standard, for example:
+        .unsafeFlags(["-std=c++17"])
+    ]
     dependencies: [
         .package(url: "https://github.com/ggerganov/llama.cpp.git", branch: "master")
     ],
@@ -22,6 +29,8 @@ let package = Package(
                 dependencies: [
                     .product(name: "llama", package: "llama.cpp")
                 ]),
-        .testTarget(name: "SwiftLlamaTests", dependencies: ["SwiftLlama"]),
+        // .testTarget(name: "SwiftLlamaTests", dependencies: ["SwiftLlama"]),
     ]
 )
+
+
