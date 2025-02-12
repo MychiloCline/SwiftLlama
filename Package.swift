@@ -1,4 +1,4 @@
-// swift-tools-version:5.9
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
@@ -11,24 +11,19 @@ let package = Package(
         .visionOS(.v1)
     ],
     products: [
-        .library(name: "SwiftLlama", targets: ["SwiftLlama"]),
+        .library(
+            name: "SwiftLlama",
+            targets: ["SwiftLlama"]
+        ),
     ],
-    // dependencies: [
-    //     .package(url: "https://github.com/ggerganov/llama.cpp.git", branch: "master")
-    // ],
+    dependencies: [
+        // No external dependencies
+    ],
     targets: [
         .target(
             name: "SwiftLlama",
-            // dependencies: [
-            //     .product(name: "llama", package: "llama.cpp")
-            // ],
-            // cxxSettings: [
-            //     // Tells the compiler where to find your C++ headers.
-            //     .headerSearchPath("include"),
-            //     // Use a particular C++ standard, for example:
-            //     .unsafeFlags(["-std=c++17"])
-            // ]
-        ),
+            dependencies: []
+        )
         // .testTarget(name: "SwiftLlamaTests", dependencies: ["SwiftLlama"]),
     ]
 )
